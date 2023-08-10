@@ -1,0 +1,49 @@
+//Создать массив слов проверить две центральные буквы первого слова с "хх", если они равны заменить их на "уу", а у последнего слова проверить первые две буквы с последними, если они равны центральные буквы заменить на "zz"
+
+var cities: [String] = ["Tashkent", "Nukus", "Moscow"]
+let compare = "xx"
+let compareTwo = "yy"
+let copmpareThree = "zz"
+
+let firstWordDevide = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count / 2 - 1)
+let firstWordDevideFirstPart = cities[0][firstWordDevide]//h
+let firstWordSecondDevide1 = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count / 2)
+let firstWordDevideSecondPart = cities[0][firstWordSecondDevide1]//k
+let sumLetters = "\(firstWordDevideFirstPart)\(firstWordDevideSecondPart)"//hk
+
+if sumLetters == compare {
+    let firstWordFirstDevide = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count / 2 - 1)
+    let firstWordFirstPart = cities[0][..<firstWordFirstDevide] //Tas
+    let firstWordEndIndex = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count)
+    let firstWordSecondDevide = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count / 2 + 1)
+    let firstWordSecondPart = cities[0][firstWordSecondDevide..<firstWordEndIndex]//ent
+    let firstWordMiddleIndex = cities[0].index(cities[0].startIndex, offsetBy: cities[0].count / 2 + 1)
+    
+    print("\(firstWordFirstPart) - \(compareTwo) - \(firstWordSecondPart)")
+} else {
+    let lastWordFirstIndex = cities[2].index(cities[2].startIndex, offsetBy: 2)
+    let lastWordFirstLetters = cities[2][..<lastWordFirstIndex]//Mo
+    
+    let lastWordEndIndex = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count)
+    let lastWordLastIndex = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count / 2 + 1)
+    let lastWordLastLetters = cities[2][lastWordLastIndex..<lastWordEndIndex]//ow
+    
+    if lastWordFirstLetters == lastWordLastLetters {
+        let lastWordDevide = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count / 2 - 1)
+        let lastWordFirstPart = cities[2][..<lastWordDevide]//Mo
+        let lastWordEndIndex1 = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count)
+        let lastWordSecondDevide = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count / 2 + 1)
+    let lastWordSecondPart = cities[2][lastWordSecondDevide..<lastWordEndIndex1]//ow
+    
+    let lastWordMiddleIndex = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count / 2 - 1)
+    let lastWordMiddleLetter = cities[2][lastWordMiddleIndex]//s
+    let lastWordMiddleSecondIndex = cities[2].index(cities[2].startIndex, offsetBy: cities[2].count / 2)
+    let lastWordSecondMiddleLetter = cities[2][lastWordMiddleSecondIndex]//c
+    let sumLastWordLetters = "\(lastWordMiddleLetter)\(lastWordSecondMiddleLetter)"
+        
+        print("\(lastWordFirstPart) - \(copmpareThree) - \(lastWordSecondPart)")
+    }
+    
+    
+    
+}
